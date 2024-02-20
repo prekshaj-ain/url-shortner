@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "The URL Shortener Service is a backend application designed to provide users with the ability to shorten long URLs into more manageable and shareable links. This service aims to simplify the process of sharing URLs by generating compact and easy-to-use short links that redirect users to the original long URLs.",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./dist/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.19",
     "express": "^4.18.2",
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.0.3",
+    "typescript": "^5.3.3"
   }
 }
