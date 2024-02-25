@@ -43,34 +43,22 @@ The URL Shortener Service is a backend application designed to provide users wit
       "shortUrl": "https://short.url/my-custom-url"
     }
     ```
-  - **Error (409)**: Conflict - Custom alias already taken
-    ```json
-    {
-      "error": "Custom alias 'my-custom-url' is already taken"
-    }
-    ```
 
 ### 3. Redirect URL
 
 - **Method**: GET
-- **URL**: /:shortUrl
+- **URL**: /:alias
 - **Description**: Redirects users to the original long URL associated with the provided short URL.
 
 ### 4. URL Analytics
 
 - **Method**: GET
-- **URL**: /api/analytics/:shortUrl
+- **URL**: /api/analytics/:urlId
 - **Description**: Retrieves analytics data for a shortened URL, including click count, referrers, and click timestamps.
 - **Response**:
   ```json
   {
     "clicks": 100,
-    "referrers": {
-      "direct": 30,
-      "social": 40,
-      "search": 20,
-      "other": 10
-    },
     "clickTimestamps": ["2024-01-01T12:00:00Z", "2024-01-02T08:30:00Z", "..."]
   }
   ```
@@ -78,7 +66,7 @@ The URL Shortener Service is a backend application designed to provide users wit
 ### 5. URL Expiration
 
 - **Method**: PUT
-- **URL**: /api/expiration/:shortUrl
+- **URL**: /api/expiration/:urlId
 - **Description**: Sets an expiration date for a shortened URL.
 - **Request Body**:
   ```json
@@ -90,7 +78,7 @@ The URL Shortener Service is a backend application designed to provide users wit
 ### 6. URL Deletion
 
 - **Method**: DELETE
-- **URL**: /api/:shortUrl
+- **URL**: /api/:urlId
 - **Description**: Deletes a shortened URL and its associated analytics data.
 - **Response**:
   ```json
